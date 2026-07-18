@@ -1,16 +1,24 @@
-# zero-shelter
+<div align="center">
 
-Safety for AI-assisted development.
+  <h1>Zero Shelter</h1>
 
-zero-shelter는 AI 프롬프트, 생성 코드, 의존성, 로컬 개발 설정에서 발생할 수
-있는 위험을 사용자가 확인하고 대응할 수 있도록 돕는 오픈소스 도구를 준비하고
-있습니다.
+  <p>
+    <strong>Security checks for safer AI-assisted development.</strong><br />
+    더 안전한 AI 활용 개발을 위한 보안 점검 도구.
+  </p>
 
-## 참여하기
+  <p>
+    Zero Shelter is an npm-based open-source security tool that checks AI prompts and generated results<br />
+    for risky requests, code, dependencies, and development environment settings.<br />
+    Zero Shelter는 AI 프롬프트와 생성 결과에서 위험한 요청, 코드, 의존성, 개발 환경 설정을<br />
+    점검하는 npm 기반 오픈소스 보안 도구입니다.
+  </p>
 
-- 일반 질문과 아이디어: 공개 커뮤니티 채널은 제품 저장소 공개 시 안내합니다.
-- 작업 범위가 정해진 버그·기능 제안: 해당 제품 저장소의 Issue
-- 보안 취약점: 공개 Issue나 커뮤니티 채널에 작성하지 말고 해당 저장소의
-  `SECURITY.md` 절차를 따르세요.
+  <p>
+    Maintained by <a href="https://github.com/hadevyi">@hadevyi</a> ·
+    <a href="https://github.com/PresentJay">@PresentJay</a> ·
+    <a href="https://github.com/msnodeve">@msnodeve</a><br />
+    <sub>Status: Early development</sub>
+  </p>
 
-프로젝트별 설치·사용 방법은 제품 저장소가 공개된 뒤 안내합니다.
+</div>
