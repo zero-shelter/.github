@@ -1,0 +1,45 @@
+name: Repository task
+description: Plan a scoped documentation, maintenance, governance, or automation change.
+title: "chore: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include secrets, personal data, internal URLs, or vulnerability details."
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What outcome should this task produce?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Describe what is included and explicitly excluded.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions for completion.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: Explain how the completed change will be verified.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I confirmed that this Issue contains no secrets or sensitive internal details.
+          required: true
