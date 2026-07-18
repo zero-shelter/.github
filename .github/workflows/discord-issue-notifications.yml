@@ -1,0 +1,17 @@
+name: Discord issue notifications
+
+on:
+  issues:
+    types: [opened, closed]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    name: Notify Owner Discord of Issue Activity
+    uses: ./.github/workflows/reusable-discord-issue-notification.yml
+    secrets:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
