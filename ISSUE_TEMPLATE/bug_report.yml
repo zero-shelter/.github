@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible problem in this repository.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include secrets, personal data, or vulnerability details."
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: affected-area
+    attributes:
+      label: Affected area
+      description: Identify the affected page, file, workflow, release, or feature.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment or context
+      description: Include relevant versions, browser, and operating system details when applicable.
