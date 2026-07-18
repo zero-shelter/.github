@@ -1,0 +1,17 @@
+name: Discord workflow failure notifications
+
+on:
+  workflow_run:
+    workflows:
+      - Discord issue notifications
+    types: [completed]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    name: Notify Owner Discord of Workflow Failure
+    uses: ./.github/workflows/reusable-discord-workflow-failure-notification.yml
+    secrets:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
