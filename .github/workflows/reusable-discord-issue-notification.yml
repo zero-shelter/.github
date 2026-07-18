@@ -1,0 +1,104 @@
+name: Reusable Discord issue notification
+
+on:
+  workflow_call:
+    secrets:
+      DISCORD_WEBHOOK_URL:
+        required: true
+
+permissions: {}
+
+jobs:
+  notify:
+    name: Notify Owner Discord of Issue Activity
+    if: ${{ github.event_name != 'issue_comment' || !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      EVENT_NAME: ${{ github.event_name }}
+      EVENT_ACTION: ${{ github.event.action || '' }}
+      REPOSITORY: ${{ github.repository }}
+      ACTOR: ${{ github.actor }}
+      ISSUE_NUMBER: ${{ github.event.issue.number || '' }}
+      ISSUE_TITLE: ${{ github.event.issue.title || '' }}
+      ISSUE_URL: ${{ github.event.issue.html_url || '' }}
+      COMMENT_URL: ${{ github.event.comment.html_url || '' }}
+    steps:
+      - name: Send notification
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${DISCORD_WEBHOOK_URL}" ]]; then
+            echo "::error::The DISCORD_WEBHOOK_URL repository secret is not configured."
+            exit 1
+          fi
+
+          case "${EVENT_NAME}:${EVENT_ACTION}" in
+            issues:opened)
+              event_label="Issue opened"
+              color="5763719"
+              target_url="${ISSUE_URL}"
+              ;;
+            issues:closed)
+              event_label="Issue closed"
+              color="15548997"
+              target_url="${ISSUE_URL}"
+              ;;
+            issue_comment:created)
+              event_label="New issue comment"
+              color="5793266"
+              target_url="${COMMENT_URL:-${ISSUE_URL}}"
+              ;;
+            workflow_dispatch:*)
+              event_label="Webhook test"
+              color="16705372"
+              target_url="https://github.com/${REPOSITORY}"
+              ;;
+            *)
+              echo "No Discord notification is configured for ${EVENT_NAME}:${EVENT_ACTION}."
+              exit 0
+              ;;
+          esac
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            summary="Manual Discord webhook test"
+          else
+            summary="#${ISSUE_NUMBER} ${ISSUE_TITLE}"
+          fi
+
+          payload="$({
+            jq -n \
+              --arg event_label "${event_label}" \
+              --arg summary "${summary}" \
+              --arg target_url "${target_url}" \
+              --arg repository "${REPOSITORY}" \
+              --arg actor "${ACTOR}" \
+              --argjson color "${color}" \
+              '{
+                allowed_mentions: {parse: []},
+                embeds: [
+                  {
+                    title: $event_label,
+                    description: $summary,
+                    url: $target_url,
+                    color: $color,
+                    fields: [
+                      {name: "Repository", value: $repository, inline: true},
+                      {name: "Actor", value: $actor, inline: true}
+                    ]
+                  }
+                ]
+              }'
+          })"
+
+          curl \
+            --fail-with-body \
+            --silent \
+            --show-error \
+            --retry 3 \
+            --retry-all-errors \
+            --header "Content-Type: application/json" \
+            --data "${payload}" \
+            "${DISCORD_WEBHOOK_URL}"
