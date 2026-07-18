@@ -1,0 +1,99 @@
+name: Reusable Discord workflow failure notification
+
+on:
+  workflow_call:
+    secrets:
+      DISCORD_WEBHOOK_URL:
+        required: true
+
+permissions: {}
+
+jobs:
+  notify:
+    name: Notify Owner Discord of Workflow Failure
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.conclusion == 'timed_out' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      EVENT_NAME: ${{ github.event_name }}
+      REPOSITORY: ${{ github.repository }}
+      WORKFLOW_NAME: ${{ github.event.workflow_run.name || 'Manual test' }}
+      RUN_NUMBER: ${{ github.event.workflow_run.run_number || '' }}
+      HEAD_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+      RUN_URL: ${{ github.event.workflow_run.html_url || '' }}
+      CONCLUSION: ${{ github.event.workflow_run.conclusion || 'test' }}
+      ACTOR: ${{ github.event.workflow_run.actor.login || github.actor }}
+    steps:
+      - name: Send notification
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${DISCORD_WEBHOOK_URL}" ]]; then
+            echo "::error::The DISCORD_WEBHOOK_URL repository secret is not configured."
+            exit 1
+          fi
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            event_label="Workflow failure notification test"
+            summary="Manual workflow failure notification test"
+            target_url="https://github.com/${REPOSITORY}/actions"
+          else
+            case "${CONCLUSION}" in
+              failure)
+                event_label="GitHub Actions workflow failed"
+                ;;
+              timed_out)
+                event_label="GitHub Actions workflow timed out"
+                ;;
+              *)
+                echo "No Discord notification is configured for conclusion: ${CONCLUSION}."
+                exit 0
+                ;;
+            esac
+            summary="${WORKFLOW_NAME} #${RUN_NUMBER}"
+            target_url="${RUN_URL}"
+          fi
+
+          branch="${HEAD_BRANCH:-unknown}"
+
+          payload="$({
+            jq -n \
+              --arg event_label "${event_label}" \
+              --arg summary "${summary}" \
+              --arg target_url "${target_url}" \
+              --arg repository "${REPOSITORY}" \
+              --arg workflow_name "${WORKFLOW_NAME}" \
+              --arg branch "${branch}" \
+              --arg conclusion "${CONCLUSION}" \
+              --arg actor "${ACTOR}" \
+              '{
+                allowed_mentions: {parse: []},
+                embeds: [
+                  {
+                    title: $event_label,
+                    description: $summary,
+                    url: $target_url,
+                    color: 15548997,
+                    fields: [
+                      {name: "Repository", value: $repository, inline: true},
+                      {name: "Workflow", value: $workflow_name, inline: true},
+                      {name: "Branch", value: $branch, inline: true},
+                      {name: "Conclusion", value: $conclusion, inline: true},
+                      {name: "Actor", value: $actor, inline: true}
+                    ]
+                  }
+                ]
+              }'
+          })"
+
+          curl \
+            --fail-with-body \
+            --silent \
+            --show-error \
+            --retry 3 \
+            --retry-all-errors \
+            --header "Content-Type: application/json" \
+            --data "${payload}" \
+            "${DISCORD_WEBHOOK_URL}"
