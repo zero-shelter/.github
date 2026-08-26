@@ -8,10 +8,12 @@
   </p>
 
   <p>
-    Zero Shelter is an npm-based open-source security tool that checks AI prompts and generated results<br />
-    for risky requests, code, dependencies, and development environment settings.<br />
-    Zero Shelter는 AI 프롬프트와 생성 결과에서 위험한 요청, 코드, 의존성, 개발 환경 설정을<br />
-    점검하는 npm 기반 오픈소스 보안 도구입니다.
+    Zero Shelter is an npm-based open-source security tool that turns the pile of warnings a<br />
+    dependency scanner produces into a short list of what is worth fixing now, and hands that<br />
+    list to your coding agent before it starts. It runs locally, with no LLM inside it.<br />
+    Zero Shelter는 의존성 스캐너가 쏟아내는 경고에서 지금 고칠 항목만 골라내고, 그 결과를<br />
+    코딩 에이전트가 작업을 시작하기 전에 넘겨주는 npm 기반 오픈소스 보안 도구입니다.<br />
+    로컬에서 돌고, 안에 LLM은 없습니다.
   </p>
 
   <p>
