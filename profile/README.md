@@ -8,6 +8,19 @@
   </p>
 
   <p>
+    <a href="https://zero-shelter.github.io">
+      <img src="https://img.shields.io/badge/Website-181717?style=flat-square&amp;logo=githubpages&amp;logoColor=white" alt="Visit website" />
+    </a>
+    <a href="https://www.npmjs.com/package/zero-shelter">
+      <img src="https://img.shields.io/npm/v/zero-shelter?style=flat-square&amp;logo=npm&amp;logoColor=white&amp;label=npm&amp;labelColor=181717&amp;color=181717" alt="npm version" />
+    </a>
+  </p>
+
+  <p>
+    <code>npx zero-shelter judge</code>
+  </p>
+
+  <p>
     Zero Shelter is an npm-based open-source security tool that turns the pile of warnings a<br />
     dependency scanner produces into a short list of what is worth fixing now, and hands that<br />
     list to your coding agent before it starts. It runs locally, with no LLM inside it.<br />
