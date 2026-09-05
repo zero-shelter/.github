@@ -4,8 +4,7 @@ Thank you for helping improve zero-shelter.
 
 ## Where to start
 
-- If Discussions are enabled later, use them for questions, ideas, and open
-  design exploration. Organization Discussions are currently unavailable.
+- Use [Discussions](https://github.com/zero-shelter/discussions/discussions) for questions, ideas, and open design exploration. Follow its [participation guide](https://github.com/zero-shelter/discussions/blob/main/CONTRIBUTING.md).
 - Create or reference an Issue before starting a scoped change.
 - Use a focused pull request for each logical change.
 - Do not post secrets, personal data, internal URLs, or vulnerability details in

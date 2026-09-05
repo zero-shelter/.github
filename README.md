@@ -11,11 +11,8 @@ repository.
   `SECURITY.md`, and `SUPPORT.md`
 - Default Issue Forms and pull request template
 - Reusable Discord notification workflows and this repository's event callers
-- Draft operating guidelines for a future Discussions launch:
-  `DISCUSSIONS.md`
+- Community conversations: [Discussions](https://github.com/zero-shelter/discussions/discussions)
 
-Organization Discussions are not currently enabled. If a public community need
-and responsible maintainers are identified, the activation decision and source
-repository will be tracked in a separate Issue. Do not store secrets, internal
-URLs, vulnerability details, or private operating procedures in this
-repository.
+Public questions, ideas, and experiences belong in the community Discussions repository. Follow its [participation guide](https://github.com/zero-shelter/discussions/blob/main/CONTRIBUTING.md); product implementation work follows the affected repository's contribution process.
+
+Do not store secrets, internal URLs, vulnerability details, or private operating procedures in this repository.
