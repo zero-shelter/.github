@@ -12,10 +12,17 @@
 
   <p>
     <a href="https://zero-shelter.github.io">
-      <img src="https://img.shields.io/badge/Website-181717?style=flat-square&amp;logo=githubpages&amp;logoColor=white" alt="Visit website" />
+      <img src="https://img.shields.io/badge/Website-zero--shelter.github.io-292929?labelColor=181717&amp;style=flat-square&amp;logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8%2BPHBhdGggZD0iTTIgMTJoMjBNMTIgMmExOCAxOCAwIDAgMSAwIDIwIDE4IDE4IDAgMCAxIDAtMjAiLz48L3N2Zz4%3D&amp;logoColor=white" alt="Visit website" />
     </a>
     <a href="https://www.npmjs.com/package/zero-shelter">
-      <img src="https://img.shields.io/npm/v/zero-shelter?style=flat-square&amp;logo=npm&amp;logoColor=white&amp;label=npm&amp;labelColor=181717&amp;color=181717" alt="npm version" />
+      <img src="https://img.shields.io/npm/v/zero-shelter?style=flat-square&amp;logo=npm&amp;logoColor=white&amp;label=npm&amp;labelColor=181717&amp;color=292929" alt="npm version" />
+    </a>
+    <br />
+    <a href="https://www.npmjs.com/package/zero-shelter">
+      <img src="https://img.shields.io/npm/dy/zero-shelter?style=flat-square&amp;logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00TTcgMTBsNSA1IDUtNU0xMiAxNVYzIi8%2BPC9zdmc%2B&amp;label=Downloads&amp;labelColor=181717&amp;color=292929" alt="npm downloads in the last 365 days" />
+    </a>
+    <a href="https://www.npmjs.com/package/zero-shelter">
+      <img src="https://img.shields.io/npm/last-update/zero-shelter/latest?style=flat-square&amp;logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjMiIHk9IjUiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNiIgcng9IjIiLz48cGF0aCBkPSJNMTYgM3Y0TTggM3Y0TTMgMTFoMThNOCAxNmgyTTE0IDE2aDIiLz48L3N2Zz4%3D&amp;label=Released&amp;labelColor=181717&amp;color=292929" alt="Latest npm version publish date" />
     </a>
   </p>
 
