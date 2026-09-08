@@ -1,14 +1,10 @@
-<div align="center">
+# zero-shelter
 
-  <h1>Zero Shelter</h1>
+Review dependency scanner findings, available upgrades, and changes since your last recorded run.
 
-  <p>
-    <strong>Security checks for safer AI-assisted development.</strong>
-  </p>
+zero-shelter combines supported scanner reports, ranks findings using documented rules, and compares them with a baseline of accepted risks. Use the terminal or an HTML report, add the result to CI, or pass it to a coding agent. The tool runs locally without a runtime LLM; invoked scanners have their own network behavior.
 
-  <p>
-    더 안전한 AI 활용 개발을 위한 보안 점검 도구.
-  </p>
+[Website](https://zero-shelter.github.io) · [Source and documentation](https://github.com/zero-shelter/zero-shelter) · [npm package](https://www.npmjs.com/package/zero-shelter) · [Community discussions](https://github.com/zero-shelter/discussions/discussions)
 
   <p>
     <a href="https://zero-shelter.github.io">
@@ -26,23 +22,22 @@
     </a>
   </p>
 
-  <p>
-    Zero Shelter is an npm-based open-source security tool that turns the pile of warnings a<br />
-    dependency scanner produces into a short list of what is worth fixing now, and hands that<br />
-    list to your coding agent before it starts. It runs locally, with no LLM inside it.
-  </p>
+```sh
+npx zero-shelter judge
+```
 
-  <p>
-    Zero Shelter는 의존성 스캐너가 쏟아내는 경고에서 지금 고칠 항목만 골라내고, 그 결과를<br />
-    코딩 에이전트가 작업을 시작하기 전에 넘겨주는 npm 기반 오픈소스 보안 도구입니다.<br />
-    로컬에서 돌고, 안에 LLM은 없습니다.
-  </p>
+Requires Node.js 20 or later and a supported project or saved scanner report. See the [installation guide](https://github.com/zero-shelter/zero-shelter#install) for scanner setup. The package is a preview; release notes describe the available features and compatibility changes.
 
-  <p>
-    Maintained by <a href="https://github.com/hadevyi">@hadevyi</a> ·
-    <a href="https://github.com/PresentJay">@PresentJay</a> ·
-    <a href="https://github.com/msnodeve">@msnodeve</a><br />
-    <sub>Status: Early development</sub>
-  </p>
+The current tool covers dependency findings. A run with no new findings does not establish that the project is secure, and accepting a finding does not fix it.
 
-</div>
+Maintained by [@hadevyi](https://github.com/hadevyi), [@PresentJay](https://github.com/PresentJay), and [@msnodeve](https://github.com/msnodeve), with [contributions from the community](https://github.com/zero-shelter/zero-shelter/graphs/contributors).
+
+## 한국어
+
+의존성 검사 결과와 가능한 업그레이드, 이전 실행 이후의 변화를 확인하는 도구입니다.
+
+지원하는 스캐너의 결과를 합치고, 문서에 명시한 규칙으로 순위를 계산한 뒤 수용한 위험을 기록한 baseline과 비교합니다. 터미널·HTML 보고서에서 직접 확인하거나 CI·코딩 에이전트에 연결할 수 있습니다. 도구는 로컬에서 실행하며 런타임 LLM을 사용하지 않습니다. 실행하는 스캐너는 각자의 네트워크 동작을 따릅니다.
+
+Node.js 20 이상과 지원하는 프로젝트 파일 또는 저장된 스캐너 보고서가 필요합니다. [한국어 설치 안내](https://github.com/zero-shelter/zero-shelter/blob/main/README.ko.md#설치)에서 설정 방법을 확인할 수 있습니다.
+
+현재 프리뷰는 의존성 검사 결과를 다룹니다. 새 항목이 없다고 프로젝트가 안전하다는 뜻은 아니며, 위험을 수용해 기록해도 취약점이 수정되는 것은 아닙니다.

@@ -1,3 +1,5 @@
+<!-- Replace prompts with the change details before posting. Keep required checks and explain any that do not apply. -->
+
 ## Linked Issue
 
 <!-- Required: Closes #123 or Refs #123 -->
