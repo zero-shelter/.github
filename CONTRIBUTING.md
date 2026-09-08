@@ -1,6 +1,6 @@
 # Contributing to zero-shelter
 
-Thank you for helping improve zero-shelter.
+Start with the affected repository’s contribution guide.
 
 ## Where to start
 
@@ -30,3 +30,7 @@ Refs #123
 
 Use `Fixes #123` only when the commit or merged pull request should close the
 Issue.
+
+## Public writing
+
+Describe the problem, resulting behavior and checks performed. Preserve technical evidence, dates and attribution when editing older records. Separate automated or agent review from human approval. Remove unused template prompts before posting.
